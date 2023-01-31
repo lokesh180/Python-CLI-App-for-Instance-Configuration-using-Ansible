@@ -1,0 +1,30 @@
+---
+- name: "Compiles and Install a C Program File on Remote Instances."
+  hosts: all
+  become: true
+  tasks:
+    - name: "Creating Temporary directory on Remote Instances"
+      ansible.builtin.shell: mkdir Remote_Instance_dir
+      args:
+        chdir: /etc
+    - name: "Uploading C Program File"
+      ansible.builtin.copy: 
+        src: matinv.c 
+        dest: /etc/Remote_Instance_dir
+    - name: "Uploading Makefile(which has command for compilation)"
+      ansible.builtin.copy: 
+        src: Makefile
+        dest: /etc/Remote_Instance_dir
+    - name: "Running Makefile (Compiling C Program)"
+      ansible.builtin.shell: make
+      args:
+        chdir: /etc/Remote_Instance_dir
+    - name: "Installing C Executable File"
+      copy: 
+        remote_src=True 
+        src=/etc/Remote_Instance_dir/mat_inv
+        dest=/etc/mat_inv
+    - name: "Deleting Temporary directory"
+      ansible.builtin.shell: rm -r Remote_Instance_dir
+      args:
+        chdir: /etc
