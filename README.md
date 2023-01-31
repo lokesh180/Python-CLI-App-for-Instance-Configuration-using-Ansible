@@ -8,3 +8,4 @@ This application will perform the below tasks:
 3. Executing C Program by using Makefile -> After Execution of makefile checking for executable exists or not.
 4. Moving the C Executable file to current working directory-> checking executable file in current working directory.
 5. Finally Deleting the Temporary Directory-> Cheking the directory deleted or not
+6. Executes C Exectable file and stores output to a file-> checking the output file created or not.
