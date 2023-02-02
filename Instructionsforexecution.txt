@@ -8,5 +8,5 @@ choose one amoung i did with ecdsa algorithm.
 ssh-keygen -f ~/.ssh/key.pub -t ecdsa -b 521
 2. Then copying key to instances by using the command
 ssh-copy-id -i ~/.ssh/key.pub user@host(localhost in my case)
-3. Making the user(connected via ssh) sudo for that a Creating a new file (name user name) in sudoers.d
+3. Making the user(connected via ssh) sudo for that Creating a new file (named user name) in sudoers.d
    and writing "<username> ALL=(ALL) NOPASSWD:ALL" and then we are making the user not to ask password.
