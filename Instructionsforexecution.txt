@@ -1,0 +1,12 @@
+---Instructions for Execution---
+Creating a SSH public key
+1.  ssh-keygen -t rsa -b 4096
+    ssh-keygen -t dsa 
+    ssh-keygen -t ecdsa -b 521
+    ssh-keygen -t ed25519 
+choose one amoung i did with ecdsa algorithm.
+ssh-keygen -f ~/.ssh/key.pub -t ecdsa -b 521
+2. Then copying key to instances by using the command
+ssh-copy-id -i ~/.ssh/key.pub user@host(localhost in my case)
+3. Making the user(connected via ssh) sudo for that a Creating a new file (name user name) in sudoers.d
+   and writing "<username> ALL=(ALL) NOPASSWD:ALL" and then we are making the user not to ask password.
